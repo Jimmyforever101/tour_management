@@ -1,12 +1,18 @@
+<?php
+$cssPath = "css/style.css";
+$version = filemtime($cssPath); // Gets file modification time for cache busting
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tourism Management System</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="<?php echo $cssPath . '?v=' . $version; ?>">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+
 
 <style>
 
@@ -25,13 +31,13 @@
             </nav>
             <div class="auth-buttons">
                 <a href="login.php" class="btn btn-outline-light me-2">Sign In</a>
-                <a href="admin/login.php" class="btn btn-primary">Admin Login</a>
+                <a href="admin/signin.php" class="btn btn-primary">Admin Login</a>
             </div>
         </div>
     </header>
 
     <!-- Hero Section with Background Image -->
-    <section class="hero-section" style="background-image: url('images/hero-bg.jpg');">
+    <section class="hero-section" style="background-image: url('back.jpeg');">
         <div class="container">
             <h1>Welcome to TourismPro</h1>
             <p>Discover amazing destinations and create unforgettable memories</p>
@@ -120,7 +126,7 @@
             </div>
             <div class="row border-top py-2">
                 <div class="col text-center">
-                    <small>&copy; 2023 TourismPro. All rights reserved.</small>
+                    <small>&copy; 2025 TourismPro. All rights reserved.</small>
                 </div>
             </div>
         </div>

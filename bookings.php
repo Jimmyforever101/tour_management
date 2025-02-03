@@ -20,16 +20,40 @@ $stmt->execute();
 $result = $stmt->get_result();
 ?>
 
+<?php
+$cssPath = "css/style.css";
+$version = filemtime($cssPath); // Gets file modification time for cache busting
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Bookings - TourismPro</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Tourism Management System</title>
+    <link rel="stylesheet" href="<?php echo $cssPath . '?v=' . $version; ?>">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+
+
 <body>
+
+<!-- Header Section -->
+<header class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">TourismPro</a>
+            <nav class="navbar-nav me-auto">
+                <a class="nav-link" href="index.php">Home</a>
+                <a class="nav-link" href="tour-packages.php">Tour Packages</a>
+                <a class="nav-link" href="bookings.php">Bookings</a>
+                <a class="nav-link" href="feedback.php">Feedback</a>
+            </nav>
+            <div class="auth-buttons">
+                <a href="login.php" class="btn btn-outline-light me-2">Sign In</a>
+                <a href="admin/login.php" class="btn btn-primary">Admin Login</a>
+            </div>
+        </div>
+    </header>
     <?php include 'includes/header.php'; ?>
 
     <div class="container mt-5">
