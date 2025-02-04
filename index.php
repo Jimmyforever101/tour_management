@@ -15,8 +15,9 @@ $version = filemtime($cssPath); // Gets file modification time for cache busting
 
 
 <style>
-
-    </style>
+    /* Add Font Awesome CSS */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+</style>
 
 <body>
     <!-- Header Section -->
@@ -78,10 +79,19 @@ $version = filemtime($cssPath); // Gets file modification time for cache busting
             <h2>About Us</h2>
             <div class="row">
                 <div class="col-md-6">
-                    <p>We are dedicated to providing exceptional travel experiences to our customers. With years of expertise in the tourism industry, we ensure quality service and memorable adventures.</p>
+                    <p>Welcome to Jimmy Forever Tour Company, your ultimate partner in crafting unforgettable adventures and lifelong memories! 
+                        We are a passionate team of travel enthusiasts, storytellers, and explorers who believe that travel is not just about visiting new places—
+                        it’s about creating meaningful connections, discovering the world’s wonders, and experiencing life in its fullest, most vibrant form. 
+                        Whether you’re dreaming of wandering through serene landscapes, diving into the heart of bustling cities, or uncovering hidden gems that only locals know about,
+                         we’re here to make your travel dreams come true. At Jimmy Forever Tour Company, we pride ourselves on offering personalized, tailor-made experiences that are as unique as you are. 
+                         From the moment you reach out to us, our dedicated team of travel experts will work closely with you to design a journey that reflects your passions, interests, and aspirations. 
+                         We handle every detail with care, from seamless transportation and handpicked accommodations to immersive activities that bring your destination to life. Our commitment to excellence ensures that your trip is not just a vacation, 
+                         but a transformative experience. At the core of everything we do is a deep love for storytelling through travel. We believe that every journey has a story to tell, and we’re here to help you write yours. 
+                         Whether it’s a romantic getaway, a family vacation, a solo adventure, or a group expedition, we’re dedicated to making every moment unforgettable. Welcome to the Jimmy Forever family—where your journey begins, and memories last forever. 
+                         Let’s explore the world together!</p>
                 </div>
                 <div class="col-md-6">
-                    <img src="images/about-us.jpg" alt="About Us" class="img-fluid">
+                    <img src="images/6.jpeg" alt="About Us" class="img-fluid">
                 </div>
             </div>
         </div>
@@ -98,11 +108,11 @@ $version = filemtime($cssPath); // Gets file modification time for cache busting
                 </div>
                 <div class="col-md-4">
                     <h3>Phone</h3>
-                    <p>+1 234 567 8900<br>+1 234 567 8901</p>
+                    <p>+255 767 711 890<br>+255 629 411 890 </p>
                 </div>
                 <div class="col-md-4">
                     <h3>Email</h3>
-                    <p>info@tourismPro.com<br>support@tourismPro.com</p>
+                    <p>jimmyforever@gmail.com<br>jimmytourscompany@gmail.com</p>
                 </div>
             </div>
         </div>
@@ -113,20 +123,34 @@ $version = filemtime($cssPath); // Gets file modification time for cache busting
         <div class="container">
             <div class="row py-4">
                 <div class="col-md-6">
-                    <h4>TourismPro</h4>
+                    <h4>JimmyTours Company</h4>
                     <p>Your trusted travel partner</p>
                 </div>
                 <div class="col-md-6 text-end">
                     <div class="social-links">
-                        <a href="#" class="text-light me-3">Facebook</a>
-                        <a href="#" class="text-light me-3">Twitter</a>
-                        <a href="#" class="text-light">Instagram</a>
+                        <button>
+                        <div class="social-icons">
+  <a href="https://facebook.com/yourpage" target="_blank" class="social-icon">
+    <i class="fab fa-facebook-f"></i>
+  </a>
+  <a href="https://twitter.com/yourhandle" target="_blank" class="social-icon">
+    <i class="fab fa-twitter"></i>
+  </a>
+  <a href="https://instagram.com/yourprofile" target="_blank" class="social-icon">
+    <i class="fab fa-instagram"></i>
+  </a>
+  <a href="https://youtube.com/yourchannel" target="_blank" class="social-icon">
+    <i class="fab fa-youtube"></i>
+  </a>
+  <a href="https://linkedin.com/yourcompany" target="_blank" class="social-icon">
+    <i class="fab fa-linkedin-in"></i>
+  </a>
                     </div>
                 </div>
             </div>
             <div class="row border-top py-2">
                 <div class="col text-center">
-                    <small>&copy; 2025 TourismPro. All rights reserved.</small>
+                    <small>&copy; 2025 jimmyforever. All rights reserved.</small>
                 </div>
             </div>
         </div>

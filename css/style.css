@@ -196,3 +196,43 @@ section h2::after {
     position: relative;
     z-index: 2;
 }
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Space between icons */
+    margin-top: 20px;
+  }
+  
+  .social-icon {
+    color: #333; /* Default icon color */
+    font-size: 24px; /* Icon size */
+    transition: color 0.3s ease, transform 0.3s ease;
+    text-decoration: none;
+  }
+  
+  .social-icon:hover {
+    color: #0073e6; /* Hover color */
+    transform: scale(1.2); /* Slightly enlarge on hover */
+  }
+  
+  /* Custom colors for specific icons */
+  .social-icon .fa-facebook-f:hover {
+    color: #1877f2; /* Facebook blue */
+  }
+  
+  .social-icon .fa-twitter:hover {
+    color: #1da1f2; /* Twitter blue */
+  }
+  
+  .social-icon .fa-instagram:hover {
+    color: #e4405f; /* Instagram pink */
+  }
+  
+  .social-icon .fa-youtube:hover {
+    color: #ff0000; /* YouTube red */
+  }
+  
+  .social-icon .fa-linkedin-in:hover {
+    color: #0a66c2; /* LinkedIn blue */
+  }
