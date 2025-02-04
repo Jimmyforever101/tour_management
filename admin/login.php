@@ -34,7 +34,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             height: 100vh;
             display: flex;
             align-items: center;
-            background: linear-gradient(135deg, #0d6efd 0%, #0dcaf0 100%);
+            background-image: url('../images/2.jpeg');
+            background-size: cover;
+            background-position: center;
         }
         .login-card {
             background: rgba(255, 255, 255, 0.9);
@@ -56,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <div class="col-md-4">
                     <div class="login-card">
                         <div class="text-center mb-4">
-                            <img src="../images/admin-logo.png" alt="Admin Logo" class="admin-logo">
+                            <img src="../images/logo.pjeg" alt="Admin Logo" class="admin-logo">
                             <h2>Admin Login</h2>
                             <p class="text-muted">Tourism Management System</p>
                         </div>

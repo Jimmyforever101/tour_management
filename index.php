@@ -23,7 +23,7 @@ $version = filemtime($cssPath); // Gets file modification time for cache busting
     <!-- Header Section -->
     <header class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="#">TourismPro</a>
+            <a class="navbar-brand" href="#">JimmyTours company</a>
             <nav class="navbar-nav me-auto">
                 <a class="nav-link" href="index.php">Home</a>
                 <a class="nav-link" href="tour-packages.php">Tour Packages</a>
@@ -104,7 +104,7 @@ $version = filemtime($cssPath); // Gets file modification time for cache busting
             <div class="row">
                 <div class="col-md-4">
                     <h3>Address</h3>
-                    <p>123 Tourism Street<br>Travel City, TC 12345</p>
+                    <p>123 Tourism Street<br>Arusha, Tz</p>
                 </div>
                 <div class="col-md-4">
                     <h3>Phone</h3>
