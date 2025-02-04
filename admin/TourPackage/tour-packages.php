@@ -51,7 +51,7 @@ include '../includes/header.php';
                     <tbody>
                         <?php while ($tour = $result->fetch_assoc()): ?>
                             <tr>
-                                <td><?php echo $tour['tour_id']; ?></td>
+                                <td><?php echo $tour['id']; ?></td>
                                 <td><?php echo $tour['name']; ?></td>
                                 <td>$<?php echo number_format($tour['price'], 2); ?></td>
                                 <td>
@@ -62,7 +62,8 @@ include '../includes/header.php';
                                     echo $duration . ' days';
                                     ?>
                                 </td>
-                                <td><?php echo $tour['created_by_name']; ?></td>
+                                <td><?php echo $tour['username']; ?></td>
+
                                 <td>
                                     <span class="badge bg-success">Active</span>
                                 </td>
