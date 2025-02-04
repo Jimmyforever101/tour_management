@@ -39,21 +39,7 @@ $version = filemtime($cssPath); // Gets file modification time for cache busting
 <body>
 
 <!-- Header Section -->
-<header class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="#">TourismPro</a>
-            <nav class="navbar-nav me-auto">
-                <a class="nav-link" href="index.php">Home</a>
-                <a class="nav-link" href="tour-packages.php">Tour Packages</a>
-                <a class="nav-link" href="bookings.php">Bookings</a>
-                <a class="nav-link" href="feedback.php">Feedback</a>
-            </nav>
-            <div class="auth-buttons">
-                <a href="login.php" class="btn btn-outline-light me-2">Sign In</a>
-                <a href="admin/login.php" class="btn btn-primary">Admin Login</a>
-            </div>
-        </div>
-    </header>
+
     <?php include 'includes/header.php'; ?>
 
     <div class="container mt-5">
