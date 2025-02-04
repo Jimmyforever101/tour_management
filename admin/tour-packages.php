@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 require_once '../config/database.php';
@@ -13,10 +12,11 @@ $pageTitle = "Tour Package Management";
 $currentPage = "tours";
 
 // Fetch all tours with creator info
-$query = "SELECT t.*, u.username as created_by_name 
-          FROM tours t 
-          LEFT JOIN users u ON t.created_by = u.id 
-          ORDER BY t.tour_id DESC";
+$query = "SELECT t.*, u.username 
+FROM tours t 
+LEFT JOIN users u ON t.created_by = u.id 
+ORDER BY t.id DESC
+";
 $result = $conn->query($query);
 
 
@@ -49,36 +49,36 @@ include '../includes/header.php';
                         </tr>
                     </thead>
                     <tbody>
-                        <?php while($tour = $result->fetch_assoc()): ?>
-                        <tr>
-                        <td><?php echo $tour['tour_id']; ?></td>
-<td><?php echo $tour['name']; ?></td>
-<td>$<?php echo number_format($tour['price'], 2); ?></td>
-<td>
-    <?php 
-    $start = new DateTime($tour['start_date']);
-    $end = new DateTime($tour['end_date']);
-    $duration = $start->diff($end)->days;
-    echo $duration . ' days';
-    ?>
-</td>
-<td><?php echo $tour['created_by_name']; ?></td>
-<td>
-    <span class="badge bg-success">Active</span>
-</td>
-<td>
-    <button class="btn btn-sm btn-info" onclick="viewTour(<?php echo $tour['tour_id']; ?>)">
-        <i class="bi bi-eye"></i>
-    </button>
-    <button class="btn btn-sm btn-primary" onclick="editTour(<?php echo $tour['tour_id']; ?>)">
-        <i class="bi bi-pencil"></i>
-    </button>
-    <button class="btn btn-sm btn-danger" onclick="deleteTour(<?php echo $tour['tour_id']; ?>)">
-        <i class="bi bi-trash"></i>
-    </button>
-</td>
+                        <?php while ($tour = $result->fetch_assoc()): ?>
+                            <tr>
+                                <td><?php echo $tour['tour_id']; ?></td>
+                                <td><?php echo $tour['name']; ?></td>
+                                <td>$<?php echo number_format($tour['price'], 2); ?></td>
+                                <td>
+                                    <?php
+                                    $start = new DateTime($tour['start_date']);
+                                    $end = new DateTime($tour['end_date']);
+                                    $duration = $start->diff($end)->days;
+                                    echo $duration . ' days';
+                                    ?>
+                                </td>
+                                <td><?php echo $tour['created_by_name']; ?></td>
+                                <td>
+                                    <span class="badge bg-success">Active</span>
+                                </td>
+                                <td>
+                                    <button class="btn btn-sm btn-info" onclick="viewTour(<?php echo $tour['tour_id']; ?>)">
+                                        <i class="bi bi-eye"></i>
+                                    </button>
+                                    <button class="btn btn-sm btn-primary" onclick="editTour(<?php echo $tour['tour_id']; ?>)">
+                                        <i class="bi bi-pencil"></i>
+                                    </button>
+                                    <button class="btn btn-sm btn-danger" onclick="deleteTour(<?php echo $tour['tour_id']; ?>)">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </td>
 
-                        </tr>
+                            </tr>
                         <?php endwhile; ?>
                     </tbody>
                 </table>
@@ -133,12 +133,12 @@ include '../includes/header.php';
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-   function viewTour(id) {
-    const xhr = new XMLHttpRequest();
-    xhr.open('GET', `get_tour.php?tour_id=${id}`, true);
-    xhr.onload = function() {
-        const tour = JSON.parse(this.responseText);
-        const viewModal = `
+    function viewTour(id) {
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', `get_tour.php?tour_id=${id}`, true);
+        xhr.onload = function() {
+            const tour = JSON.parse(this.responseText);
+            const viewModal = `
             <div class="modal fade" id="viewTourModal">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -155,63 +155,63 @@ include '../includes/header.php';
                     </div>
                 </div>
             </div>`;
-        document.body.insertAdjacentHTML('beforeend', viewModal);
-        const modal = new bootstrap.Modal(document.getElementById('viewTourModal'));
-        modal.show();
-    };
-    xhr.send();
-}
+            document.body.insertAdjacentHTML('beforeend', viewModal);
+            const modal = new bootstrap.Modal(document.getElementById('viewTourModal'));
+            modal.show();
+        };
+        xhr.send();
+    }
 
-function editTour(id) {
-    const xhr = new XMLHttpRequest();
-    xhr.open('GET', `get_tour.php?tour_id=${id}`, true);
-    xhr.onload = function() {
-        const tour = JSON.parse(this.responseText);
-        document.querySelector('[name="name"]').value = tour.name;
-        document.querySelector('[name="price"]').value = tour.price;
-        document.querySelector('[name="start_date"]').value = tour.start_date;
-        document.querySelector('[name="end_date"]').value = tour.end_date;
-        document.querySelector('[name="description"]').value = tour.description;
-        
-        const form = document.getElementById('addTourForm');
-        const tourIdInput = document.createElement('input');
-        tourIdInput.type = 'hidden';
-        tourIdInput.name = 'tour_id';
-        tourIdInput.value = id;
-        form.appendChild(tourIdInput);
-        
-        const modal = new bootstrap.Modal(document.getElementById('addTourModal'));
-        modal.show();
-    };
-    xhr.send();
-}
-
-function deleteTour(id) {
-    if(confirm('Are you sure you want to delete this tour package?')) {
+    function editTour(id) {
         const xhr = new XMLHttpRequest();
-        xhr.open('POST', 'delete_tour.php', true);
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.open('GET', `get_tour.php?tour_id=${id}`, true);
         xhr.onload = function() {
-            if(this.status === 200) {
+            const tour = JSON.parse(this.responseText);
+            document.querySelector('[name="name"]').value = tour.name;
+            document.querySelector('[name="price"]').value = tour.price;
+            document.querySelector('[name="start_date"]').value = tour.start_date;
+            document.querySelector('[name="end_date"]').value = tour.end_date;
+            document.querySelector('[name="description"]').value = tour.description;
+
+            const form = document.getElementById('addTourForm');
+            const tourIdInput = document.createElement('input');
+            tourIdInput.type = 'hidden';
+            tourIdInput.name = 'tour_id';
+            tourIdInput.value = id;
+            form.appendChild(tourIdInput);
+
+            const modal = new bootstrap.Modal(document.getElementById('addTourModal'));
+            modal.show();
+        };
+        xhr.send();
+    }
+
+    function deleteTour(id) {
+        if (confirm('Are you sure you want to delete this tour package?')) {
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', 'delete_tour.php', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onload = function() {
+                if (this.status === 200) {
+                    location.reload();
+                }
+            };
+            xhr.send(`tour_id=${id}`);
+        }
+    }
+
+    function saveTour() {
+        const formData = new FormData(document.getElementById('addTourForm'));
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', 'save_tour.php', true);
+        xhr.onload = function() {
+            if (this.status === 200) {
                 location.reload();
             }
         };
-        xhr.send(`tour_id=${id}`);
+        xhr.send(formData);
     }
-}
-
-function saveTour() {
-    const formData = new FormData(document.getElementById('addTourForm'));
-    const xhr = new XMLHttpRequest();
-    xhr.open('POST', 'save_tour.php', true);
-    xhr.onload = function() {
-        if(this.status === 200) {
-            location.reload();
-        }
-    };
-    xhr.send(formData);
-}
-
 </script>
 </body>
+
 </html>

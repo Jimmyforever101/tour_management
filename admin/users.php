@@ -12,7 +12,8 @@ $pageTitle = "User Management";
 $currentPage = "users";
 
 // Fetch all users
-$query = "SELECT * FROM users ORDER BY user_id DESC";
+$query = "SELECT * FROM users ORDER BY id DESC";
+
 $result = $conn->query($query);
 
 include '../includes/header.php';
@@ -44,7 +45,7 @@ include '../includes/header.php';
                     <tbody>
                         <?php while($user = $result->fetch_assoc()): ?>
                         <tr>
-                            <td><?php echo $user['user_id']; ?></td>
+                            <td><?php echo $user['id']; ?></td>
                             <td><?php echo $user['username']; ?></td>
                             <td><?php echo $user['email']; ?></td>
                             <td>
@@ -55,10 +56,10 @@ include '../includes/header.php';
                                 </span>
                             </td>
                             <td>
-                                <button class="btn btn-sm btn-primary" onclick="editUser(<?php echo $user['user_id']; ?>)">
+                                <button class="btn btn-sm btn-primary" onclick="editUser(<?php echo $user['id']; ?>)">
                                     <i class="bi bi-pencil"></i>
                                 </button>
-                                <button class="btn btn-sm btn-danger" onclick="deleteUser(<?php echo $user['user_id']; ?>)">
+                                <button class="btn btn-sm btn-danger" onclick="deleteUser(<?php echo $user['id']; ?>)">
                                     <i class="bi bi-trash"></i>
                                 </button>
                             </td>
