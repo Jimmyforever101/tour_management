@@ -31,8 +31,8 @@ $version = filemtime($cssPath); // Gets file modification time for cache busting
                 <a class="nav-link" href="feedback.php">Feedback</a>
             </nav>
             <div class="auth-buttons">
-                <a href="login.php" class="btn btn-outline-light me-2">Sign In</a>
-                <a href="admin/signin.php" class="btn btn-primary">Admin Login</a>
+                
+                <a href="index.php" class="btn btn-primary">signout</a>
             </div>
         </div>
     </header>
